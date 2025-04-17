@@ -1,0 +1,67 @@
+{
+  "orders": [
+    {
+      "name": "Phan Viết Hiếu",
+      "avatar": "https://randomuser.me/api/portraits/women/1.jpg",
+      "company": "AvatarSystems",
+      "value": "10000",
+      "date": "10/07/2023",
+      "status": "New",
+      "id": "70cb"
+    },
+    {
+      "name": "Carlos Garcia",
+      "avatar": "https://randomuser.me/api/portraits/men/2.jpg",
+      "company": "SmoozeShift",
+      "value": 747,
+      "date": "24/07/2023",
+      "status": "New",
+      "id": "7e7f"
+    },
+    {
+      "name": "Elizabeth Bailey",
+      "avatar": "https://randomuser.me/api/portraits/women/3.jpg",
+      "company": "Prime Time Telecom",
+      "value": 564,
+      "date": "08/08/2023",
+      "status": "In-progress",
+      "id": "c00b"
+    },
+    {
+      "name": "Ryan Brown",
+      "avatar": "https://randomuser.me/api/portraits/men/4.jpg",
+      "company": "OmniTech Corporation",
+      "value": 541,
+      "date": "31/08/2023",
+      "status": "In-progress",
+      "id": "1e3d"
+    },
+    {
+      "name": "Ryan Young",
+      "avatar": "https://randomuser.me/api/portraits/women/5.jpg",
+      "company": "DataStream Inc.",
+      "value": 769,
+      "date": "01/05/2023",
+      "status": "Completed",
+      "id": "398c"
+    },
+    {
+      "name": "Hailey Adams",
+      "avatar": "https://randomuser.me/api/portraits/men/6.jpg",
+      "company": "FlowRush",
+      "value": 922,
+      "date": "10/06/2023",
+      "status": "Completed",
+      "id": "09e3"
+    },
+    {
+      "id": "70cb",
+      "name": "Phan Viết Hiếu",
+      "avatar": "https://randomuser.me/api/portraits/women/1.jpg",
+      "company": "AvatarSystems",
+      "value": "1000",
+      "date": "10/07/2023",
+      "status": "New"
+    }
+  ]
+}
