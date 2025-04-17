@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import '../css/admin.css'
 import DataTable from 'react-data-table-component';
+import { NavLink } from 'react-router-dom';
+
 export default function Dashboard() {
 
     const [cards, setCards] = useState([]);
@@ -156,12 +158,12 @@ export default function Dashboard() {
                 <div className="menu">
                     <img className='logoMenu' src="../src/img/Image 1858.png" alt="" />
 
-                    <a href="#">Dashboard</a>
-                    <a href="#">Projects</a>
-                    <a href="#">Teams</a>
-                    <a href="#">Analytics</a>
-                    <a href="#">Messages</a>
-                    <a href="#">Integrations</a>
+                    <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Dashboard</NavLink>
+                    <NavLink to="/projects" className={({ isActive }) => isActive ? 'active' : ''}>Projects</NavLink>
+                    <NavLink to="/teams" className={({ isActive }) => isActive ? 'active' : ''}>Teams</NavLink>
+                    <NavLink to="/analytics" className={({ isActive }) => isActive ? 'active' : ''}>Analytics</NavLink>
+                    <NavLink to="/messages" className={({ isActive }) => isActive ? 'active' : ''}>Messages</NavLink>
+                    <NavLink to="/integrations" className={({ isActive }) => isActive ? 'active' : ''}>Integrations</NavLink>
                 </div>
                 <div className="content">
                     <div className="secA">
