@@ -1,10 +1,10 @@
 {
   "orders": [
     {
-      "name": "Phan Viết Hiếu",
+      "name": "Ngoc Huyen",
       "avatar": "https://randomuser.me/api/portraits/women/1.jpg",
-      "company": "AvatarSystems",
-      "value": "200",
+      "company": "Cong ty thuc pham",
+      "value": "500",
       "date": "10/07/2023",
       "status": "New",
       "id": "70cb"
