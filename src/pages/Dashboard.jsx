@@ -2,10 +2,18 @@ import { useEffect, useState } from 'react';
 import '../css/admin.css'
 import DataTable from 'react-data-table-component';
 export default function Dashboard() {
+
     const [cards, setCards] = useState([]);
     const [data, setData] = useState([]);
     const [selectedOrder, setSelectedOrder] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
+    const [newOrder, setNewOrder] = useState({
+        name: '',
+        company: '',
+        value: '',
+        date: new Date().toISOString().split('T')[0],
+        status: 'Pending',
+    });
 
     useEffect(() => {
         fetch("http://localhost:3001/overview")
@@ -13,6 +21,56 @@ export default function Dashboard() {
             .then((data) => setCards(data))
             .catch((err) => console.error("Error fetching data:", err));
     }, []);
+
+    useEffect(() => {
+        fetch("http://localhost:3002/orders")
+            .then(res => res.json())
+            .then(setData)
+            .catch(err => console.error(err));
+    }, []);
+
+    const columns = [
+        {
+            name: 'Customer Name',
+            selector: row => row.name,
+            sortable: true,
+        },
+        {
+            name: 'Company',
+            selector: row => row.company,
+            sortable: true,
+        },
+        {
+            name: 'Order Value',
+            selector: row => `$${row.value}`,
+            sortable: true,
+        },
+        {
+            name: 'Order Date',
+            selector: row => row.date,
+            sortable: true,
+        },
+        {
+            name: 'Status',
+            selector: row => (
+                <span className={`status ${row.status.toLowerCase()}`}>
+                    {row.status}
+                </span>
+            ),
+            sortable: true,
+        },
+        {
+            name: 'Action',
+            cell: row => (
+                <img
+                    src="../src/img/create.png"
+                    alt="Edit"
+                    onClick={() => openModal(row)}
+                    style={{ cursor: 'pointer' }}
+                />
+            ),
+        },
+    ];
     return (
         <>
 
@@ -53,7 +111,25 @@ export default function Dashboard() {
                             ))}
                         </div>
                     </div>
-                    <div className="secB"></div>
+                    <div className="secB">
+                        <div className="report-header">
+                            <h3>
+                                <i className="fas fa-file-alt report-icon"></i> Detailed report
+                            </h3>
+                            <div className="report-actions">
+                                <button className="btn btn-outline"> Import</button>
+                                <button className="btn btn-outline">Export</button>
+                            </div>
+                        </div>
+                        <DataTable
+                            columns={columns}
+                            data={data}
+                            pagination
+                            highlightOnHover
+                            striped
+                            responsive
+                        />
+                    </div>
                 </div>
                 <div className="footer"></div>
             </div>
