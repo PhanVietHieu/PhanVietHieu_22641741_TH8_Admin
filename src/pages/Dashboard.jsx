@@ -18,9 +18,9 @@ export default function Dashboard() {
     const openModal = (order = null) => {
         if (order) {
             setSelectedOrder(order);
-            setNewOrder({ ...order }); // Đặt lại thông tin đơn hàng đã chọn
+            setNewOrder({ ...order }); // Edit
         } else {
-            setSelectedOrder(null); // Không có đơn hàng chọn để thêm mới
+            setSelectedOrder(null); // Add
             setNewOrder({
                 name: '',
                 company: '',
@@ -187,6 +187,7 @@ export default function Dashboard() {
                                 <i className="fas fa-file-alt report-icon"></i> Detailed report
                             </h3>
                             <div className="report-actions">
+                                <button className="btn btn-primary" onClick={() => openModal()}>Add Order</button>
                                 <button className="btn btn-outline"> Import</button>
                                 <button className="btn btn-outline">Export</button>
                             </div>
@@ -203,44 +204,65 @@ export default function Dashboard() {
                 </div>
                 <div className="footer"></div>
             </div>
-            {modalOpen && selectedOrder && (
+            {modalOpen && (
                 <div className="modal">
                     <div className="modal-content">
-                        <h2>Edit Order</h2>
+                        <h2>{selectedOrder ? "Edit Order" : "Add Order"}</h2>
                         <form>
                             <label>Customer Name</label>
                             <input
                                 type="text"
-                                value={selectedOrder.name}
-                                onChange={(e) => setSelectedOrder({ ...selectedOrder, name: e.target.value })}
+                                value={selectedOrder ? selectedOrder.name : newOrder.name}
+                                onChange={(e) =>
+                                    selectedOrder
+                                        ? setSelectedOrder({ ...selectedOrder, name: e.target.value })
+                                        : setNewOrder({ ...newOrder, name: e.target.value })
+                                }
                             />
                             <label>Company</label>
                             <input
                                 type="text"
-                                value={selectedOrder.company}
-                                onChange={(e) => setSelectedOrder({ ...selectedOrder, company: e.target.value })}
+                                value={selectedOrder ? selectedOrder.company : newOrder.company}
+                                onChange={(e) =>
+                                    selectedOrder
+                                        ? setSelectedOrder({ ...selectedOrder, company: e.target.value })
+                                        : setNewOrder({ ...newOrder, company: e.target.value })
+                                }
                             />
                             <label>Order Value</label>
                             <input
                                 type="number"
-                                value={selectedOrder.value}
-                                onChange={(e) => setSelectedOrder({ ...selectedOrder, value: e.target.value })}
+                                value={selectedOrder ? selectedOrder.value : newOrder.value}
+                                onChange={(e) =>
+                                    selectedOrder
+                                        ? setSelectedOrder({ ...selectedOrder, value: e.target.value })
+                                        : setNewOrder({ ...newOrder, value: e.target.value })
+                                }
                             />
                             <label>Order Date</label>
                             <input
                                 type="date"
-                                value={selectedOrder.date}
-                                onChange={(e) => setSelectedOrder({ ...selectedOrder, date: e.target.value })}
+                                value={selectedOrder ? selectedOrder.date : newOrder.date}
+                                onChange={(e) =>
+                                    selectedOrder
+                                        ? setSelectedOrder({ ...selectedOrder, date: e.target.value })
+                                        : setNewOrder({ ...newOrder, date: e.target.value })
+                                }
                             />
                             <label>Status</label>
                             <select
-                                value={selectedOrder.status}
-                                onChange={(e) => setSelectedOrder({ ...selectedOrder, status: e.target.value })}
+                                value={selectedOrder ? selectedOrder.status : newOrder.status}
+                                onChange={(e) =>
+                                    selectedOrder
+                                        ? setSelectedOrder({ ...selectedOrder, status: e.target.value })
+                                        : setNewOrder({ ...newOrder, status: e.target.value })
+                                }
                             >
                                 <option value="Pending">Pending</option>
                                 <option value="Shipped">Shipped</option>
                                 <option value="Delivered">Delivered</option>
                             </select>
+
                             <div className="modal-actions">
                                 <button type="button" onClick={handleSave}>Save</button>
                                 <button type="button" onClick={closeModal}>Close</button>
@@ -249,6 +271,7 @@ export default function Dashboard() {
                     </div>
                 </div>
             )}
+
         </>
     )
 }

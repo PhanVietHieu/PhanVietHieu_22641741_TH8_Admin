@@ -4,7 +4,7 @@
       "name": "Ngoc Huyen",
       "avatar": "https://randomuser.me/api/portraits/women/1.jpg",
       "company": "Cong ty thuc pham",
-      "value": "500",
+      "value": "1000",
       "date": "10/07/2023",
       "status": "New",
       "id": "70cb"
@@ -62,6 +62,22 @@
       "value": "1000",
       "date": "10/07/2023",
       "status": "New"
+    },
+    {
+      "id": "29e5",
+      "name": "Phan Viet Hieu",
+      "company": "Cong ty phan mem",
+      "value": "3000",
+      "date": "2025-04-17",
+      "status": "Pending"
+    },
+    {
+      "id": "a0aa",
+      "name": "Phan Viet Hieu",
+      "company": "Cong ty Game",
+      "value": "1000",
+      "date": "2025-04-17",
+      "status": "Pending"
     }
   ]
 }
