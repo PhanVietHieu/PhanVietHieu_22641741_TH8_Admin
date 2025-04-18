@@ -145,7 +145,6 @@ export default function Dashboard() {
     ];
     return (
         <>
-
             <div className="container">
                 <div className="header">
                     <h2 className='title'>Dashboard</h2>
@@ -158,12 +157,33 @@ export default function Dashboard() {
                 <div className="menu">
                     <img className='logoMenu' src="../src/img/Image 1858.png" alt="" />
 
-                    <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Dashboard</NavLink>
-                    <NavLink to="/projects" className={({ isActive }) => isActive ? 'active' : ''}>Projects</NavLink>
-                    <NavLink to="/teams" className={({ isActive }) => isActive ? 'active' : ''}>Teams</NavLink>
-                    <NavLink to="/analytics" className={({ isActive }) => isActive ? 'active' : ''}>Analytics</NavLink>
-                    <NavLink to="/messages" className={({ isActive }) => isActive ? 'active' : ''}>Messages</NavLink>
-                    <NavLink to="/integrations" className={({ isActive }) => isActive ? 'active' : ''}>Integrations</NavLink>
+                    <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>
+                        <img className='navIcon' src="../src/img/Squares four 1.png" alt="Dashboard" /> Dashboard
+                    </NavLink>
+
+                    <NavLink to="/projects" className={({ isActive }) => isActive ? 'active' : ''}>
+                        <img className='navIcon' src="../src/img/Project.png" alt="Projects" /> Projects
+                    </NavLink>
+
+                    <NavLink to="/teams" className={({ isActive }) => isActive ? 'active' : ''}>
+                        <img className='navIcon' src="../src/img/Groups.png" alt="Teams" /> Teams
+                    </NavLink>
+                    <NavLink to="/analytics" className={({ isActive }) => isActive ? 'active' : ''}>
+                        <img className='navIcon' src="../src/img/Pie chart.png" alt="Analytics" /> Analytics
+                    </NavLink>
+                    <NavLink to="/messages" className={({ isActive }) => isActive ? 'active' : ''}>
+                        <img className='navIcon' src="../src/img/Chat.png" alt="Messages" /> Messages
+                    </NavLink>
+                    <NavLink to="/integrations" className={({ isActive }) => isActive ? 'active' : ''}>
+                        <img className='navIcon' src="../src/img/Code.png" alt="Integrations" /> Integrations
+                    </NavLink>
+
+                    <div className='poster'>
+
+                        <img src="../src/img/Group.png" alt="" srcset="" />
+                        <h3>V2.0 is available</h3>
+                        <button type="button">Try now</button>
+                    </div>
                 </div>
                 <div className="content">
                     <div className="secA">
